@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="manyworlds:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/manyworlds_jar</output-path>
+    <root id="archive" name="manyworlds.jar">
+      <element id="module-output" name="manyworlds" />
+    </root>
+  </artifact>
+</component>

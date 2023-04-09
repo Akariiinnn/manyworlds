@@ -1,0 +1,17 @@
+name: ManyWorlds
+version: '${project.version}'
+main: me.akariiinnn.manyworlds.ManyWorlds
+api-version: 1.19
+
+commands:
+  dispatch:
+    description: tkt frr
+    usage: /<command>
+
+  lobby:
+    description: tp to lobby
+    usage: /<command>
+
+  create:
+    description: create the worlds
+    usage: /<command>
