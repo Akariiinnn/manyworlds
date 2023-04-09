@@ -16,14 +16,12 @@ public class CommandCreate implements CommandExecutor {
         World origin = Bukkit.getWorld(p.getLocation().getWorld().getUID());
         List<Player> players =  origin.getPlayers();
         WorldCreator wc;
-        int i = 0;
         for (Player player: players) {
             wc = new WorldCreator("speedrun" + player.getName());
             wc.environment(World.Environment.NORMAL);
             wc.type(WorldType.NORMAL);
             wc.seed(5280170466361302551L);
             wc.createWorld();
-            i++;
         }
         return true;
     }
