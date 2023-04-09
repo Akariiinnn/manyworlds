@@ -20,7 +20,7 @@ public class CommandDispatch implements CommandExecutor {
         Location loc;
         int i = 0;
         for (Player player: players) {
-            loc = new Location(Bukkit.getWorld("speedrun" + i), -204, 77, -209);
+            loc = new Location(Bukkit.getWorld("speedrun" + player.getName()), -204, 77, -209);
             player.teleport(loc);
             player.setGameMode(GameMode.SURVIVAL);
             i++;

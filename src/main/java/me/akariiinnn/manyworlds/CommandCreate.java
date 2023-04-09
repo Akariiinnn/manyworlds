@@ -18,7 +18,7 @@ public class CommandCreate implements CommandExecutor {
         WorldCreator wc;
         int i = 0;
         for (Player player: players) {
-            wc = new WorldCreator("speedrun" + Integer.toString(i));
+            wc = new WorldCreator("speedrun" + player.getName());
             wc.environment(World.Environment.NORMAL);
             wc.type(WorldType.NORMAL);
             wc.seed(5280170466361302551L);
