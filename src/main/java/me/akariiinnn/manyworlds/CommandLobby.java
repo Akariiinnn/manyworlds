@@ -1,6 +1,7 @@
 package me.akariiinnn.manyworlds;
 
 import org.bukkit.Bukkit;
+import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -21,7 +22,7 @@ public class CommandLobby implements CommandExecutor {
             double z = p.getLocation().getZ();
             World world = p.getWorld();
             Location lastLoc = new Location(world, x, y ,z);
-            Location loc = new Location(Bukkit.getWorld("Lobby"), 3, -43, 9);
+            Location loc = new Location(Bukkit.getWorld("Lobby"), 8, -60, 9);
             p.teleport(loc);
             return true;
         }

@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.List;
 
 public class CommandCreate implements CommandExecutor {
@@ -15,14 +16,18 @@ public class CommandCreate implements CommandExecutor {
         Player p = (Player) sender;
         World origin = Bukkit.getWorld(p.getLocation().getWorld().getUID());
         List<Player> players =  origin.getPlayers();
-        WorldCreator wc;
-        for (Player player: players) {
-            wc = new WorldCreator("speedrun" + player.getName());
-            wc.environment(World.Environment.NORMAL);
-            wc.type(WorldType.NORMAL);
-            wc.seed(5280170466361302551L);
-            wc.createWorld();
+        try {
+            new WorldCreator("speedrun").createWorld();
+            for (Player player : players) {
+                World world = Bukkit.getWorld("speedrun" + player.getName());
+                Utils.unloadWorld(world);
+                Utils.copyWorld(Bukkit.getWorld("speedrun"), "speedrun" + player.getName());
+            }
+            return true;
+        } catch (Exception e) {
+            p.sendMessage("Error: speedrun world not found add it to the server files");
+            return false;
         }
-        return true;
     }
 }
+

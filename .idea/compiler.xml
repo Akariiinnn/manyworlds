@@ -9,8 +9,5 @@
         <module name="manyworlds" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="manyworlds" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

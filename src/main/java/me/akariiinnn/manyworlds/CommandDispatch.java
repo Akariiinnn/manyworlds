@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.*;
@@ -22,6 +23,7 @@ public class CommandDispatch implements CommandExecutor {
             loc = new Location(Bukkit.getWorld("speedrun" + player.getName()), -204, 77, -209);
             player.teleport(loc);
             player.setGameMode(GameMode.SURVIVAL);
+            player.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
         }
         return true;
     }
