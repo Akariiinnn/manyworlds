@@ -17,12 +17,15 @@ public class CommandCreate implements CommandExecutor {
         World origin = Bukkit.getWorld(p.getLocation().getWorld().getUID());
         List<Player> players =  origin.getPlayers();
         try {
-            new WorldCreator("speedrun").createWorld();
+            World speedrun = new WorldCreator("speedrun").createWorld();
             for (Player player : players) {
+                PlayerStats.createStats(player);
+                PlayerStats.saveStats(player);
                 World world = Bukkit.getWorld("speedrun" + player.getName());
                 Utils.unloadWorld(world);
                 Utils.copyWorld(Bukkit.getWorld("speedrun"), "speedrun" + player.getName());
             }
+            Utils.unloadWorld(speedrun);
             return true;
         } catch (Exception e) {
             p.sendMessage("Error: speedrun world not found add it to the server files");
